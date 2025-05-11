@@ -1,0 +1,48 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@model MemberLoginForm
+@{
+	Layout = "_CleanLayout";
+	ViewData["Title"] = "Login";
+}
+
+<section id="login">
+	<form asp-controller="Auth" asp-action="Login" method="post" novalidate enctype="multipart/form-data">
+
+		<h1>@ViewData["Title"]</h1>
+
+		@if (!string.IsNullOrEmpty(ViewBag?.ErrorMessage))
+		{
+			<div class="alert error">
+				@ViewBag?.ErrorMessage
+			</div>
+		}
+
+
+		<div class="form-group">
+			<label asp-for="Email"></label>
+			<input asp-for="Email" class="form-control" />
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+
+		<div class="form-group">
+			<label asp-for="Password"></label>
+			<input asp-for="Password" class="form-control" />
+			<span asp-validation-for="Password" class="text-danger"></span>
+		</div>
+
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-blue">Log In</button>
+		</div>
+
+		<div class="form-footer">
+			<span>Don't have an account?</span>
+			<a asp-controller="Auth" asp-action="SignUp">Sign Up</a>
+		</div>
+	</form>
+
+</section>
+
+
