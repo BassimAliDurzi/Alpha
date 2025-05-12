@@ -1,5 +1,5 @@
-using Business.Contexts;
-using Business.Entities;
+using Data.Contexts;
+using Data.Entities;
 using Business.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

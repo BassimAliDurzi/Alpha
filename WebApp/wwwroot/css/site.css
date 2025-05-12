@@ -153,6 +153,7 @@
 
 /* base */
 
+
 *,
 *::before,
 *::after {
@@ -645,7 +646,7 @@ label {
     }
 
 .form-footer {
-    margin-top: 3rem ;
+    margin-top: 3rem;
 }
 
 /* badges */
@@ -735,6 +736,23 @@ label {
 }
 
     #login h1 {
+        margin-bottom: 2rem;
+    }
+
+    #login .form-group .btn {
+        margin-top: 2rem;
+    }
+
+#signup {
+    width: 600px;
+    background-color: var(--form-background-color);
+    padding: 4rem 4rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+    #signup h1 {
         margin-bottom: 2rem;
     }
 

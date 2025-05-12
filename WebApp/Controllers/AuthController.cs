@@ -16,6 +16,7 @@ public class AuthController(IAuthService authService) : Controller
 
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(MemberLoginForm form, string returnUrl = "~/")
     {
         ViewBag.ErrorMessage = "";
@@ -30,6 +31,34 @@ public class AuthController(IAuthService authService) : Controller
 
 
         ViewBag.ErrorMessage = "Incorrect email or password.";
+        return View(form);
+
+    }
+
+
+
+
+
+    public IActionResult SignUp()
+    {
+        ViewBag.ErrorMessage = "";
+        return View();
+    }
+
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> SignUp(MemberSignUpForm form)
+    {
+
+        if (ModelState.IsValid)
+        {
+            var result = await _authService.SignUpAsync(form);
+            if (result)
+
+                return LocalRedirect("~/");
+        }
+        ViewBag.ErrorMessage = "";
         return View(form);
 
     }

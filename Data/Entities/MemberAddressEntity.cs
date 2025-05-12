@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Business.Entities;
+namespace Data.Entities;
 
 public class MemberAddressEntity
 {

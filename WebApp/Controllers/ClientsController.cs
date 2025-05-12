@@ -1,4 +1,4 @@
-﻿using Business.Models;
+﻿using Data.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApp.Controllers
