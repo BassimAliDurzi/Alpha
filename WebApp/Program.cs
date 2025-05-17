@@ -24,12 +24,13 @@ builder.Services.AddIdentity<MemberEntity, IdentityRole>(options =>
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "/auth/login";
+    options.LoginPath = "/Auth/Login";
     options.SlidingExpiration = true;
 });
 
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
@@ -40,11 +41,11 @@ app.UseRouting();
 app.UseAuthorization();
 
 
-app.MapGet("/", context =>
-{
-    context.Response.Redirect("/Admin/Index");
-    return Task.CompletedTask;
-});
+//app.MapGet("/", context =>
+//{
+//    context.Response.Redirect("/Admin/Index");
+//    return Task.CompletedTask;
+//});
 
 
 app.MapControllerRoute(

@@ -8,6 +8,7 @@ public class AuthController(IAuthService authService) : Controller
 {
     private readonly IAuthService _authService = authService;
 
+
     public IActionResult Login()
     {
         ViewBag.ErrorMessage = "";
@@ -16,7 +17,6 @@ public class AuthController(IAuthService authService) : Controller
 
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(MemberLoginForm form, string returnUrl = "~/")
     {
         ViewBag.ErrorMessage = "";
@@ -26,7 +26,7 @@ public class AuthController(IAuthService authService) : Controller
             var result = await _authService.LoginAsync(form);
             if (result)
 
-                return Redirect(returnUrl);
+                return LocalRedirect(returnUrl);
         }
 
 
@@ -34,7 +34,6 @@ public class AuthController(IAuthService authService) : Controller
         return View(form);
 
     }
-
 
 
 
@@ -47,7 +46,6 @@ public class AuthController(IAuthService authService) : Controller
 
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> SignUp(MemberSignUpForm form)
     {
 

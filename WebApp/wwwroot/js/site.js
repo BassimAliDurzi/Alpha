@@ -42,7 +42,7 @@
     });
 
     /* Handle form submit */
-    document.querySelectorAll('form').forEach(form => {
+    document.querySelectorAll('.modal form').forEach(form => {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             clearErrorMessages(form);
@@ -56,11 +56,11 @@
                 });
 
                 if (res.ok) {
-                    const modal = form.closest('.modal')
+                    const modal = form.closest('.modal');
                     if (modal)
                         modal.style.display = 'none';
 
-                    window.location.reload()
+                    window.location.reload();
 
                 } else if (res.status === 400) {
                     const data = await res.json();
@@ -83,6 +83,8 @@
         });
     });
 });
+
+/* Helper Functions */
 
 function clearErrorMessages(form) {
     form.querySelectorAll('[data-val="true"]').forEach(input => {
