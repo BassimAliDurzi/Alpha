@@ -115,7 +115,7 @@
     --error-text-color: var(--red-dark);
     --error-border-color: var(--red-semilight);
     /* Form */
-    --form-text-color: var(--white-100);
+    --form-text-color: var(--dark-400);
     --form-border-color: var(--white-100);
     --form-background-color: var(--white-100);
     --form-label-color: var(--dark-200);
@@ -136,6 +136,10 @@
     /* Alert */
     --alert-notification-error-text-color: var(--red-dark);
     --alert-notification-error-background-color: var(--red-light);
+    /* Card */
+    --card-text-color: var(--dark-400);
+    --card-border-color: var(--white-100);
+    --card-background-color: var(--white-100);
 }
 
 [data-theme="dark"] {
@@ -763,6 +767,42 @@ label {
 
 #login .form-group .btn {
     margin-top: 2rem;
+}
+
+#members {
+    display: grid;
+    gap: 2rem;
+}
+
+.members-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.member {
+    text-align: center;
+    display:grid;
+    gap:0.8rem;
+}
+
+.jobtitle {
+    background-color: var(--gray-500);
+    display: inline;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    margin: 0.5rem auto 2rem;
+    width: 50%;
+}
+
+.card {
+    color: var(--text-color);
+    background-color: var(--card-background-color);
+    border: 1px solid var(--car-border-color);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 16px;
 }
 
 /* views */
