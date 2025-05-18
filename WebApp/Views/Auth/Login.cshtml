@@ -7,6 +7,7 @@
 
 <section id="login">
 	<form asp-controller="Auth" asp-action="Login" method="post"  novalidate enctype="multipart/form-data">
+		<input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
 		@Html.AntiForgeryToken()
 
 		<h1>@ViewData["Title"]</h1>

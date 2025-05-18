@@ -10,15 +10,16 @@ public class AuthController(IAuthService authService) : Controller
     private readonly IAuthService _authService = authService;
 
 
-    public IActionResult Login()
+    public IActionResult Login(string returnUrl = "~/")
     {
         ViewBag.ErrorMessage = "";
+        ViewBag.ReturnUrl = returnUrl;
         return View();
     }
 
 
     [HttpPost]
-    public async Task<IActionResult> Login(MemberLoginForm form)
+    public async Task<IActionResult> Login(MemberLoginForm form, string returnUrl = "~/")
     {
         ViewBag.ErrorMessage = "";
 
@@ -26,8 +27,8 @@ public class AuthController(IAuthService authService) : Controller
         {
             var result = await _authService.LoginAsync(form);
             if (result)
-
-                return RedirectToAction("Index", "Admin");
+                return Redirect(returnUrl);
+            //return RedirectToAction("Index", "Admin");
         }
 
         ViewBag.ErrorMessage = "Incorrect email or password.";
