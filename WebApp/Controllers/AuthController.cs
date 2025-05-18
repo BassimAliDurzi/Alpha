@@ -1,4 +1,5 @@
-﻿using Business.Services;
+﻿using System.Threading.Tasks;
+using Business.Services;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -59,5 +60,11 @@ public class AuthController(IAuthService authService) : Controller
         ViewBag.ErrorMessage = "";
         return View(form);
 
+    }
+
+    public async Task<IActionResult> Logout()
+    {
+        await _authService.LogoutAsync();
+        return LocalRedirect("~/");
     }
 }

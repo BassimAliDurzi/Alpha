@@ -223,9 +223,9 @@ body {
         grid-area: header;
         border-bottom: 1px solid var(--border-color);
         padding: 1rem 2rem;
-        display: grid;
+        display: flex;
         grid-template-columns: 1fr auto;
-        gap: 5rem;
+        justify-content: flex-end;
         align-items: center;
     }
 
@@ -235,7 +235,7 @@ body {
     }
 
 .page-header {
-    display: flex;
+    display: flex-end;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3rem;
@@ -398,6 +398,11 @@ a {
 .btn-submit {
     width: 100%;
     margin-top: 2rem;
+}
+
+.btn-logout::before {
+    content: '\f2f5';
+    font-family: var(--font-fa-pro);
 }
 
 /* list */
@@ -756,8 +761,8 @@ label {
         margin-bottom: 2rem;
     }
 
-    #login .form-group .btn {
-        margin-top: 2rem;
-    }
+#login .form-group .btn {
+    margin-top: 2rem;
+}
 
 /* views */

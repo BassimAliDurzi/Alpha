@@ -31,7 +31,9 @@
 				@await Html.PartialAsync("Partials/Components/_Navlinks")
 			</div>
 		</aside>
-		<header class="header"></header>
+		<header class="header">
+			<a class="btn btn-blue btn-logout" asp-controller="Auth" asp-action="Logout">Log Out</a>
+		</header>
 		<main class="main">
 			@RenderBody()
 		</main>

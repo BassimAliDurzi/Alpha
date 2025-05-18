@@ -8,6 +8,7 @@ public interface IAuthService
 {
     Task<bool> LoginAsync(MemberLoginForm loginForm);
     Task<bool> SignUpAsync(MemberSignUpForm signupForm);
+    Task LogoutAsync();
 }
 
 public class AuthService(SignInManager<MemberEntity> signInManager, UserManager<MemberEntity> userManager) : IAuthService
@@ -35,5 +36,10 @@ public class AuthService(SignInManager<MemberEntity> signInManager, UserManager<
 
         var result = await _userManager.CreateAsync(memberEntity, signupForm.Password);
         return result.Succeeded;
+    }
+
+    public async Task LogoutAsync()
+    {
+        await _signInManager.SignOutAsync();
     }
 }
