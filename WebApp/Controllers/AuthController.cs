@@ -17,7 +17,7 @@ public class AuthController(IAuthService authService) : Controller
 
 
     [HttpPost]
-    public async Task<IActionResult> Login(MemberLoginForm form, string returnUrl = "~/")
+    public async Task<IActionResult> Login(MemberLoginForm form)
     {
         ViewBag.ErrorMessage = "";
 
@@ -26,9 +26,8 @@ public class AuthController(IAuthService authService) : Controller
             var result = await _authService.LoginAsync(form);
             if (result)
 
-                return LocalRedirect(returnUrl);
+                return RedirectToAction("Index", "Admin");
         }
-
 
         ViewBag.ErrorMessage = "Incorrect email or password.";
         return View(form);
@@ -56,6 +55,7 @@ public class AuthController(IAuthService authService) : Controller
 
                 return LocalRedirect("~/");
         }
+
         ViewBag.ErrorMessage = "";
         return View(form);
 
