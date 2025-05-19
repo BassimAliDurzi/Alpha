@@ -1,5 +1,5 @@
 ﻿@using Business.Models
-@model IEnumerable<Member>
+@model IEnumerable<MemberForm>
 
 @{
 	ViewData["Title"] = "Team Members";
@@ -21,7 +21,7 @@
 			{
 				<div class="card memeber">
 					<h4 class="name">@member.FirstName @member.LastName</h4>
-					<div class="jobtitle">@member.JobTitle CEO</div>
+					<div class="jobtitle">@member.JobTitle</div>
 					<div class="email">@member.Email</div>
 					<div class="phone">@member.Phone</div>
 					<div class="role"></div>

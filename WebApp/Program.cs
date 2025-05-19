@@ -41,14 +41,6 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-
-//app.MapGet("/", context =>
-//{
-//    context.Response.Redirect("/Admin/Index");
-//    return Task.CompletedTask;
-//});
-
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Admin}/{action=Index}/{id?}");

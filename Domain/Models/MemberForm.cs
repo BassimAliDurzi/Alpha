@@ -1,6 +1,6 @@
 ﻿namespace Domain.Models;
 
-public class Member
+public class MemberForm
 {
     public string? Id { get; set; }
     public string? FirstName { get; set; }
@@ -9,6 +9,6 @@ public class Member
     public string? Email { get; set; }
     public string? Phone { get; set; }
 
-    public MemberAddress? Address { get; set; } = new();
+    public MemberAddressForm? Address { get; set; } = new();
 
 }

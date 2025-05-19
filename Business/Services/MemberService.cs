@@ -7,16 +7,16 @@ namespace Business.Services;
 
 public interface IMemberService
 {
-    Task<IEnumerable<Member>> GetAllMembers();
+    Task<IEnumerable<MemberForm>> GetAllMembers();
 }
 
 public class MemberService(UserManager<MemberEntity> userManager) : IMemberService
 {
     private readonly UserManager<MemberEntity> _userManager = userManager;
-    public async Task<IEnumerable<Member>> GetAllMembers()
+    public async Task<IEnumerable<MemberForm>> GetAllMembers()
     {
         var list = await _userManager.Users.ToListAsync();
-        var members = list.Select(x => new Member
+        var members = list.Select(x => new MemberForm
         {
             Id = x.Id,
             FirstName = x.FirstName,
